@@ -10,5 +10,13 @@ image:https://badge.waffle.io/FunThomas424242/rades.tag-generator.svg?columns=al
 
 Automatische Generierung von Schlüsselwörtern aus einem Text
 
+## Quellen
+
+* http://www.devglan.com/artificial-intelligence/stanford-nlp-pos-tagger-example
+* http://www.devglan.com/artificial-intelligence/open-nlp-pos-tagger-example
+* https://github.com/Neuw84/RAKE-Java
+* https://stanbol.apache.org/docs/trunk/components/enhancer/engines/opennlppos
+
+
 
 
