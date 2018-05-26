@@ -1,3 +1,14 @@
-# rades.tag-generator
+[#status]
+image:https://api.bintray.com/packages/funthomas424242/funthomas424242-libs/rades.tag-generator/images/download.svg[link="https://bintray.com/funthomas424242/funthomas424242-libs/rades.tag-generator/_latestVersion"]
+image:https://travis-ci.org/FunThomas424242/rades.tag-generator.svg?branch=master["Build Status", link="https://travis-ci.org/FunThomas424242/rades.tag-generator"]
+image:https://api.codacy.com/project/badge/Grade/64f23754fdc1426a9216521cf5362d71["Codacy code quality", link="https://www.codacy.com/app/FunThomas424242/rades.tag-generator?utm_source=github.com&utm_medium=referral&utm_content=FunThomas424242/rades.tag-generator&utm_campaign=Badge_Grade"]
+image:https://codecov.io/gh/FunThomas424242/rades.tag-generator/branch/master/graph/badge.svg[link="https://codecov.io/gh/FunThomas424242/rades.tag-generator"]
+image:https://badge.waffle.io/FunThomas424242/rades.tag-generator.svg?columns=all["Waffle.io - Columns and their card count", link="https://waffle.io/FunThomas424242/rades.tag-generator"]
+
+[#main]
+= rades.tag-generator
 
 Automatische Generierung von Schlüsselwörtern aus einem Text
+
+
+

@@ -1,0 +1,11 @@
+
+{
+    "groupID":"com.github.funthomas424242",
+    "artifactID":"rades.tag-generator",
+    "version":"1.0.0-SNAPSHOT",
+    "githubUsername":"FunThomas424242",
+    "githubRepositoryname":"rades.tag-generator",
+    "bintrayUsername":"funthomas424242",
+    "bintrayRepositoryname":"funthomas424242-libs",
+    "bintrayPackagename":"rades.tag-generator"
+}

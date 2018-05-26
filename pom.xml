@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.github.funthomas424242</groupId>
+  <artifactId>rades.tag-generator</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <licenses>
+    <license>
+      <url>./LICENSE</url>
+    </license>
+  </licenses>
+  <scm>
+    <connection>scm:git:https://github.com/FunThomas424242/rades.tag-generator.git</connection>
+    <developerConnection>scm:git:git@github.com:FunThomas424242/rades.tag-generator.git</developerConnection>
+    <url>https://github.com/FunThomas424242/rades.tag-generator</url>
+  </scm>
+  <issueManagement>
+    <system>GitHub</system>
+    <url>https://github.com/FunThomas424242/rades.tag-generator/issues/new</url>
+  </issueManagement>
+  <ciManagement>
+    <system>Travis</system>
+    <url>https://travis-ci.org/FunThomas424242/rades.tag-generator</url>
+  </ciManagement>
+  <distributionManagement>
+    <repository>
+      <id>bintray-funthomas424242-funthomas424242-libs</id>
+      <name>funthomas424242-funthomas424242-libs</name>
+      <url>https://api.bintray.com/maven/funthomas424242/funthomas424242-libs/rades.tag-generator/;publish=1</url>
+    </repository>
+  </distributionManagement>
+  <properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
+</project>
