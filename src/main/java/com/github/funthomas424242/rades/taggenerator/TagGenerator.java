@@ -9,7 +9,7 @@ public class TagGenerator {
 
     public void tag(String text) throws IOException, ClassNotFoundException {
 
-        MaxentTagger maxentTagger = new MaxentTagger("english-left3words-distsim.tagger");;
+        MaxentTagger maxentTagger = new MaxentTagger("german-ud.tagger");;
         String tag = maxentTagger.tagString(text);
         String[] eachTag = tag.split("\\s+");
         System.out.println("Word      " + "Standford tag");
