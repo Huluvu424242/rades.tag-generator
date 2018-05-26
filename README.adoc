@@ -12,6 +12,7 @@ Automatische Generierung von Schlüsselwörtern aus einem Text
 
 ## Quellen
 
+* https://github.com/richardwilly98/test-stanford-tagger
 * http://www.devglan.com/artificial-intelligence/stanford-nlp-pos-tagger-example
 * http://www.devglan.com/artificial-intelligence/open-nlp-pos-tagger-example
 * https://github.com/Neuw84/RAKE-Java
