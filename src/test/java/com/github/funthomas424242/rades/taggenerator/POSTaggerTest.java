@@ -4,11 +4,11 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-public class TagGeneratorTest {
+public class POSTaggerTest {
 
     @Test
     public void tag() throws IOException, ClassNotFoundException {
-        TagGenerator tagging = new TagGenerator();
+        POSTagger tagging = new POSTagger();
         tagging.tag("In diesem Programm geht es um die Programmiersprache Java. Außerdem wollen " +
                 "wir uns mit Sprachanalyse befassen. Die Sprache wird in Token zerlegt und es wird die" +
                 "Wortform (Verb, Substantiv, ...) bestimmt. Dabei werden die Stopp Wörter ignoriert." +
