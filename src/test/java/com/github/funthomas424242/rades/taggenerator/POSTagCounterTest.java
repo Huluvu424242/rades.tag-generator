@@ -19,7 +19,8 @@ class POSTagCounterTest {
 
         final Path modelFilepath = Paths.get("model/german-fast.tagger");
         final Charset charset = StandardCharsets.UTF_8;
-        final POSTagCounter tagCounter = new POSTagCounter(modelFilepath,charset);
+        final String posTagCategories = "NE|NN|NNP|NNS|NNPS";
+        final POSTagCounter tagCounter = new POSTagCounter(modelFilepath,charset,posTagCategories);
 
         final Path textFile = Paths.get("src/main/resources","Der_Prozess.txt");
         try {
