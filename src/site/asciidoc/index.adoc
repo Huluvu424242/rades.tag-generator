@@ -1,0 +1,12 @@
+# Rades Tag-Generator Projekt
+:author: FunThomas424242 (Thomas Schubert)
+//:toc:
+:icons: font
+:lang: de
+:encoding: iso-8859-1
+
+Dieses Projekt stellt Klassen zur automatischen Ermittlung von Schlagwörtern aus Textdateien bekannter Sprachen zur Verfügung.
+Die Ermittlung der Schlagwörter erfolgt auf Basis von Textanalysen durchgeführt vom NLP Standford Standard POS Tagger
+und unterstützenden Frameworks.
+
+link:benutzer.html[Benutzerhandbuch] link:entwickler.html[Entwicklerhandbuch]
