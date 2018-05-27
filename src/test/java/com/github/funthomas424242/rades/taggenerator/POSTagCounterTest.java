@@ -47,8 +47,12 @@ class POSTagCounterTest {
         final Path textFile = Paths.get("src/main/resources", "Der_Prozess.txt");
         try {
             final Multiset<TaggedWord> keywords = tagCounter.parse(textFile);
-            assertEquals(3,keywords.count("Maler"));
-            // tagCounter.printSortedNounsCount(keywords);
+             // tagCounter.printSortedNounsCount(keywords);
+            assertEquals(177,keywords.count(new TaggedWord("Tür","NN")));
+            assertEquals(133,keywords.count(new TaggedWord("Hand","NN")));
+            assertEquals(125,keywords.count(new TaggedWord("Advokaten","NN")));
+            assertEquals(122,keywords.count(new TaggedWord("Mann","NN")));
+            assertEquals(118,keywords.count(new TaggedWord("Maler","NN")));
         } catch (Exception e) {
             e.printStackTrace();
             fail();
