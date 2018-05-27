@@ -35,12 +35,19 @@
     <url>https://travis-ci.org/FunThomas424242/rades.tag-generator</url>
   </ciManagement>
   <distributionManagement>
+    <snapshotRepository>
+      <id>bintray-funthomas424242-funthomas424242-libs</id>
+      <name>oss-jfrog-artifactory-snapshots</name>
+      <url>https://oss.jfrog.org/artifactory/oss-snapshot-local</url>
+    </snapshotRepository>
     <repository>
       <id>bintray-funthomas424242-funthomas424242-libs</id>
       <name>funthomas424242-funthomas424242-libs</name>
-      <url>https://api.bintray.com/maven/funthomas424242/funthomas424242-libs/rades.tag-generator/;publish=1</url>
+      <url>https://api.bintray.com/maven/funthomas424242/funthomas424242-libs/${project.artifactId}/;publish=1
+      </url>
     </repository>
   </distributionManagement>
+
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
@@ -52,21 +59,8 @@
     <maven>3.3.9</maven>
   </prerequisites>
 
-  <!--<repositories>-->
-    <!--<repository>-->
-      <!--<id>clojars</id>-->
-      <!--<name>Clojars Org.</name>-->
-      <!--<url>http://clojars.org/repo/</url>-->
-      <!--<layout>default</layout>-->
-    <!--</repository>-->
-    <!--<repository>-->
-      <!--<id>galan-maven-repo</id>-->
-      <!--<name>galan-maven-repo-releases</name>-->
-      <!--<url>http://galan.ehu.es/artifactory/ext-release-local</url>-->
-    <!--</repository>-->
-  <!--</repositories>-->
-
   <dependencies>
+
     <!-- https://mvnrepository.com/artifact/edu.stanford.nlp/stanford-corenlp -->
     <dependency>
       <groupId>edu.stanford.nlp</groupId>
@@ -78,10 +72,25 @@
       <artifactId>rades-annotations</artifactId>
       <version>3.1.1</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.7.25</version>
+      <scope>compile</scope>
+    </dependency>
+    <!-- APIs von denen die Generate abhängen -->
+    <dependency>
+      <groupId>javax.validation</groupId>
+      <artifactId>validation-api</artifactId>
+      <version>2.0.1.Final</version>
+      <scope>compile</scope>
+    </dependency>
     <dependency>
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
       <version>25.1-jre</version>
+      <scope>compile</scope>
     </dependency>
     <!-- Test Abhängigkeiten -->
     <dependency>
@@ -94,6 +103,19 @@
       <groupId>org.apache.bval</groupId>
       <artifactId>bval-jsr</artifactId>
       <version>1.1.2</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-core</artifactId>
+      <version>1.2.3</version>
+      <scope>test</scope>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>1.2.3</version>
       <scope>test</scope>
     </dependency>
   </dependencies>

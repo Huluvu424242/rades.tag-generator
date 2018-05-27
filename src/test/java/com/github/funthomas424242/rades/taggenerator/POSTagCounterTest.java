@@ -44,7 +44,7 @@ class POSTagCounterTest {
         final String posTagCategories = "NN|NNP|NNS|NNPS";
         final POSTagCounter tagCounter = new POSTagCounter(modelFilepath, charset, posTagCategories);
 
-        final Path textFile = Paths.get("src/main/resources", "Der_Prozess.txt");
+        final Path textFile = Paths.get("src/test/resources", "Der_Prozess.txt");
         try {
             final Multiset<TaggedWord> keywords = tagCounter.parse(textFile);
              // tagCounter.printSortedNounsCount(keywords);
