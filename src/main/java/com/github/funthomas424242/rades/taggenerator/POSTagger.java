@@ -32,7 +32,7 @@ import java.util.stream.Collectors;
 
 public class POSTagger {
 
-    final Path modelFilepath;
+    protected final Path modelFilepath;
 
     public POSTagger(final Path modelFilepath){
         this.modelFilepath=modelFilepath;

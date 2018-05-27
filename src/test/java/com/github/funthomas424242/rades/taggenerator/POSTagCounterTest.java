@@ -31,12 +31,13 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
 class POSTagCounterTest {
 
     @Test
-    void parse() {
+    public void parse() {
 
         final Path modelFilepath = Paths.get("model/german-fast.tagger");
         final Charset charset = StandardCharsets.UTF_8;
@@ -46,6 +47,7 @@ class POSTagCounterTest {
         final Path textFile = Paths.get("src/main/resources", "Der_Prozess.txt");
         try {
             final Multiset<TaggedWord> keywords = tagCounter.parse(textFile);
+            assertEquals(3,keywords.count("Maler"));
             // tagCounter.printSortedNounsCount(keywords);
         } catch (Exception e) {
             e.printStackTrace();
