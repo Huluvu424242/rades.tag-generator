@@ -1,0 +1,5 @@
+# Rades Tag-Generator Projekt
+
+Dieses Projekt stellt Klassen zur automatischen Ermittlung von Schlagwörtern aus Textdateien bekannter Sprachen zur Verfügung.
+Die Ermittlung der Schlagwörter erfolgt auf Basis von Textanalysen durchgeführt vom NLP Standford Standard POS Tagger
+und unterstützenden Frameworks.
