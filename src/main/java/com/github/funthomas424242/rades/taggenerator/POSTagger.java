@@ -3,16 +3,23 @@ package com.github.funthomas424242.rades.taggenerator;
 import edu.stanford.nlp.tagger.maxent.MaxentTagger;
 
 import java.io.IOException;
+import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class POSTagger {
 
+    final Path modelFilepath;
+
+    public POSTagger(final Path modelFilepath){
+        this.modelFilepath=modelFilepath;
+    }
+
 
     public List<TokenDescriptionAccessor> createTokenDescriptions(String text) throws IOException, ClassNotFoundException {
 
-        final MaxentTagger maxentTagger = new MaxentTagger("german-fast.tagger");
+        final MaxentTagger maxentTagger = new MaxentTagger(modelFilepath.toString());
         ;
         final String tagLine = maxentTagger.tagString(text);
         final String[] tagDescription = tagLine.split("\\s+");
