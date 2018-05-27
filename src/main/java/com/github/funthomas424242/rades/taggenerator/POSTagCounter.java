@@ -117,7 +117,7 @@ public class POSTagCounter {
         }
     }
 
-    public void parse(final Path textFilePath) throws Exception {
+    public Multiset<TaggedWord> parse(final Path textFilePath) throws Exception {
         final String model = modelFilepath.toString();
 
 
@@ -154,6 +154,9 @@ public class POSTagCounter {
         int count = 0;
         Multiset<TaggedWord> sortedSet = Multisets.copyHighestCountFirst(nounSet);
         pw.println("Sorting time: " + watch.toString());
+
+
+
         Iterator<Entry<TaggedWord>> iterator = sortedSet.entrySet().iterator();
         while (count < max && iterator.hasNext()) {
             Entry<TaggedWord> item = iterator.next();
@@ -177,8 +180,15 @@ public class POSTagCounter {
         }
 
         pw.close();
+
+        return sortedSet;
     }
 
+    public void printSortedNounsCount(final Multiset<TaggedWord> keywords) {
+        keywords.entrySet().stream().forEach(item -> {
+            System.out.println(item.getElement().value() + " - " + item.getCount());
+        });
+    }
 }
 
 

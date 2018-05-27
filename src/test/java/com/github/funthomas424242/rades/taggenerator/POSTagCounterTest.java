@@ -1,5 +1,7 @@
 package com.github.funthomas424242.rades.taggenerator;
 
+import com.google.common.collect.Multiset;
+import edu.stanford.nlp.ling.TaggedWord;
 import org.junit.jupiter.api.Test;
 import sun.nio.cs.UTF_32;
 
@@ -20,9 +22,9 @@ class POSTagCounterTest {
         final POSTagCounter tagCounter = new POSTagCounter(modelFilepath,charset);
 
         final Path textFile = Paths.get("src/main/resources","Der_Prozess.txt");
-        System.out.println("Textfile: "+textFile.toAbsolutePath().toString());
         try {
-            tagCounter.parse(textFile);
+            final Multiset<TaggedWord> keywords= tagCounter.parse(textFile);
+            tagCounter.printSortedNounsCount(keywords);
         } catch (Exception e) {
             e.printStackTrace();
             fail();
