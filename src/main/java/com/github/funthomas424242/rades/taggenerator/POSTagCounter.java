@@ -18,9 +18,7 @@ import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import java.nio.file.Path;
-import java.util.Comparator;
 import java.util.List;
-import java.util.Map;
 
 public class POSTagCounter {
 
@@ -28,12 +26,12 @@ public class POSTagCounter {
 
     protected final Charset charset;
 
-    protected final String posTagCategories;
+    protected final String posTagCategoriesExpression;
 
-    public POSTagCounter(final Path modelFilepath, final Charset charset, final String posTagCategories) {
+    public POSTagCounter(final Path modelFilepath, final Charset charset, final String posTagCategoriesExpression) {
         this.modelFilepath = modelFilepath;
         this.charset = charset;
-        this.posTagCategories = posTagCategories;
+        this.posTagCategoriesExpression = posTagCategoriesExpression;
     }
 
     public Multiset<TaggedWord> parse(final Path textFilePath) throws Exception {
@@ -51,7 +49,7 @@ public class POSTagCounter {
         for (List<HasWord> sentence : documentPreprocessor) {
             List<TaggedWord> tSentence = tagger.tagSentence(sentence);
             for (TaggedWord word : tSentence) {
-                if (word.tag().matches("NE|NN|NNP|NNS|NNPS")) {
+                if (word.tag().matches(this.posTagCategoriesExpression)) {
                     nounSet.add(word);
                 }
             }
