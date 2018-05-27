@@ -59,7 +59,7 @@
                 <item name="Benutzer" href="benutzer.html"/>
                 <item name="Entwickler" href="entwickler.html"/>
             </item>
-            <item name="~ Annotations" href="https://github.com/FunThomas424242/rades.annotations"/>
+            <item name="~ Annotations" href="https://github.com/FunThomas424242/rades-annotations"/>
             <item name="~ JBoss Forge Addon" href="https://github.com/FunThomas424242/rades.forge-addon"/>
         </menu>
     </body>
