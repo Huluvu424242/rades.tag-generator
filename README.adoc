@@ -13,6 +13,8 @@ Automatische Generierung von Schlüsselwörtern aus einem Text
 ## Quellen
 
 * http://www.ling.uni-potsdam.de/~kolb/nlp-tools.html
+* http://www.ims.uni-stuttgart.de/forschung/ressourcen/lexika/TagSets/stts-table.html (Tag Set Tübingen - für deutsche Texte)
+* https://github.com/richardwilly98/test-stanford-tagger
 * http://www.devglan.com/artificial-intelligence/stanford-nlp-pos-tagger-example
 * http://www.devglan.com/artificial-intelligence/open-nlp-pos-tagger-example
 * https://github.com/Neuw84/RAKE-Java
