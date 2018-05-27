@@ -42,7 +42,7 @@ public class POSTagger {
     public List<TokenDescriptionAccessor> createTokenDescriptions(String text) throws IOException, ClassNotFoundException {
 
         final MaxentTagger maxentTagger = new MaxentTagger(modelFilepath.toString());
-        ;
+
         final String tagLine = maxentTagger.tagString(text);
         final String[] tagDescription = tagLine.split("\\s+");
         final List<TokenDescriptionAccessor> tokens = Arrays.stream(tagDescription)
