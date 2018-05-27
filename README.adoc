@@ -10,6 +10,8 @@ image:https://badge.waffle.io/FunThomas424242/rades.tag-generator.svg?columns=al
 
 Automatische Generierung von Schlüsselwörtern aus einem Text
 
+Hier finden Sie die link:https://funthomas424242.github.io/rades.tag-generator/index.html[Projektdokumentation]
+
 ## Quellen
 
 * http://www.ling.uni-potsdam.de/~kolb/nlp-tools.html
