@@ -5,9 +5,20 @@
   <groupId>com.github.funthomas424242</groupId>
   <artifactId>rades.tag-generator</artifactId>
   <version>1.0.0-SNAPSHOT</version>
+
+  <packaging>jar</packaging>
+
+  <name>rades.tag-generator</name>
+  <description>Automatische Generierung von Schlagworten aus einem Text.</description>
+  <inceptionYear>2018</inceptionYear>
+  <url>https://github.com/FunThomas424242/rades.tag-generator</url>
   <licenses>
     <license>
-      <url>./LICENSE</url>
+      <url>https://www.gnu.org/licenses/gpl-3.0.de.html</url>
+      <name>GNU GENERAL PUBLIC LICENSE
+        Version 3, 29 June 2007
+      </name>
+      <distribution>repo</distribution>
     </license>
   </licenses>
   <scm>
@@ -37,19 +48,23 @@
     <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
   </properties>
 
-  <repositories>
-    <repository>
-      <id>clojars</id>
-      <name>Clojars Org.</name>
-      <url>http://clojars.org/repo/</url>
-      <layout>default</layout>
-    </repository>
-    <repository>
-      <id>galan-maven-repo</id>
-      <name>galan-maven-repo-releases</name>
-      <url>http://galan.ehu.es/artifactory/ext-release-local</url>
-    </repository>
-  </repositories>
+  <prerequisites>
+    <maven>3.3.9</maven>
+  </prerequisites>
+
+  <!--<repositories>-->
+    <!--<repository>-->
+      <!--<id>clojars</id>-->
+      <!--<name>Clojars Org.</name>-->
+      <!--<url>http://clojars.org/repo/</url>-->
+      <!--<layout>default</layout>-->
+    <!--</repository>-->
+    <!--<repository>-->
+      <!--<id>galan-maven-repo</id>-->
+      <!--<name>galan-maven-repo-releases</name>-->
+      <!--<url>http://galan.ehu.es/artifactory/ext-release-local</url>-->
+    <!--</repository>-->
+  <!--</repositories>-->
 
   <dependencies>
     <!-- https://mvnrepository.com/artifact/edu.stanford.nlp/stanford-corenlp -->
@@ -85,6 +100,105 @@
 
   <build>
     <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <version>3.0.0-M1</version>
+        <executions>
+          <execution>
+            <id>enforce-maven</id>
+            <goals>
+              <goal>enforce</goal>
+            </goals>
+            <configuration>
+              <rules>
+                <requireMavenVersion>
+                  <version>3.3.9</version>
+                </requireMavenVersion>
+              </rules>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>license-maven-plugin</artifactId>
+        <version>1.16</version>
+        <configuration>
+          <licenseFile>LICENSE</licenseFile>
+          <licenseName>gpl_v3</licenseName>
+          <useMissingFile>true</useMissingFile>
+          <failIfWarning>true</failIfWarning>
+          <includes>
+            <include>**/*.java</include>
+            <include>**/*.properties</include>
+            <include>**/*.xml</include>
+          </includes>
+          <excludes>
+            <exclude>**/*.png</exclude>
+            <exclude>**/*.json</exclude>
+          </excludes>
+        </configuration>
+        <executions>
+          <execution>
+            <id>update-header</id>
+            <phase>process-sources</phase>
+            <goals>
+              <goal>update-file-header</goal>
+              <goal>update-project-license</goal>
+              <goal>add-third-party</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>versions-maven-plugin</artifactId>
+        <version>2.5</version>
+        <configuration>
+          <rulesUri>file:///${project.basedir}/etc/version-rules.xml</rulesUri>
+        </configuration>
+        <executions>
+          <execution>
+            <id>show-dep-updates</id>
+            <phase>
+              validate
+            </phase>
+            <goals>
+              <goal>display-dependency-updates</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>show-plugin-updates</id>
+            <phase>
+              validate
+            </phase>
+            <goals>
+              <goal>display-plugin-updates</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-clean-plugin</artifactId>
+        <version>3.1.0</version>
+        <executions>
+          <execution>
+            <phase>pre-site</phase>
+            <goals>
+              <goal>clean</goal>
+            </goals>
+            <configuration>
+              <filesets>
+                <fileset>
+                  <directory>${basedir}/docs</directory>
+                  <followSymlinks>false</followSymlinks>
+                </fileset>
+              </filesets>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -131,6 +245,36 @@
             </goals>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
+        <version>3.7.1</version>
+        <configuration>
+          <outputDirectory>${basedir}/docs</outputDirectory>
+          <locales>de</locales>
+          <relativizeDecorationLinks>false</relativizeDecorationLinks>
+          <requires>
+            <require>asciidoctor-diagram</require>
+          </requires>
+          <backend>html5</backend>
+          <asciidoc>
+            <attributes>
+              <icons>font</icons>
+              <source-highlighter>coderay</source-highlighter>
+              <coderay-css>style</coderay-css>
+              <toc>left</toc>
+              <!--<toclevels>2</toclevels>-->
+            </attributes>
+          </asciidoc>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>org.asciidoctor</groupId>
+            <artifactId>asciidoctor-maven-plugin</artifactId>
+            <version>1.5.6</version>
+          </dependency>
+        </dependencies>
       </plugin>
       <plugin>
         <!-- NOTE: We don't need a groupId specification because the group is
