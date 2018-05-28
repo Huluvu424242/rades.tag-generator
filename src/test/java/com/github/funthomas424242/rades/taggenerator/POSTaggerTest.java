@@ -52,6 +52,7 @@ public class POSTaggerTest {
             assertEquals("geht", tokens.get(3).getWort());
             assertEquals("VVFIN", tokens.get(3).getWortArt());
         } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
             fail();
         }
     }
