@@ -3,3 +3,57 @@
 Dieses Projekt stellt Klassen zur automatischen Ermittlung von Schlagwörtern aus Textdateien bekannter Sprachen zur Verfügung.
 Die Ermittlung der Schlagwörter erfolgt auf Basis von Textanalysen durchgeführt vom NLP Standford Standard POS Tagger
 und unterstützenden Frameworks.
+
+## Einbindung ins eigene Programm
+
+.pom.xml
+[source,xml]
+----
+<repositories>
+    <repository>  <!--1-->
+        <snapshots>
+            <enabled>false</enabled>
+        </snapshots>
+        <id>central</id>
+        <name>bintray</name>
+        <url>https://jcenter.bintray.com</url> <!--3-->
+    </repository>
+</repositories>
+:
+<dependencies>
+    <dependency>  <!--2-->
+        <groupId>com.github.funthomas424242</groupId>
+        <artifactId>rades.tag-generator</artifactId>
+        <version>1.0.0</version>
+    </dependency>
+</dependencies>
+----
+<1> Definition des Repositories.
+<2> Definition der Projektabhängigkeit.
+<3> Das ist der eigentliche Download URL des JCenter.
+
+## Vorbereitung der Beispiele
+
+In folgenden Beispielen wird der freie Text von Franz Kafka analysiert.
+
+(Die Tests werden etwas verfälscht, da die Quellennachweise und sonstige Metadaten in der analysierten Textdatei enthalten sind.)
+
+.Der_Prozess.txt
+[source,txt]
+----
+include::../../test/resources/Der_Prozess.txt[]
+----
+
+## Beispiel Wortartenbestimmung
+
+.POSTaggerTest.java
+[source,java]
+----
+include::../../test/java/com/github/funthomas424242/rades/taggenerator/POSTaggerTest.java[]
+----
+
+
+
+## Nutzung mit Kumo einem Word Cloud Generator
+
+Kumo Projektseite: https://github.com/kennycason/kumo
