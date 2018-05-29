@@ -34,15 +34,10 @@ und unterstützenden Frameworks.
 
 ## Vorbereitung der Beispiele
 
-In folgenden Beispielen wird der freie Text von Franz Kafka analysiert.
+In folgenden Beispielen wird ein Kapitel des freien Textes "Der Prozess" von Franz Kafka analysiert. Er ist im <<anhang>> wiedergegeben.
 
-(Die Tests werden etwas verfälscht, da die Quellennachweise und sonstige Metadaten in der analysierten Textdatei enthalten sind.)
+Die Textanalysen in den Beispielen werden etwas verfälscht, da die Quellennachweise und sonstige Metadaten in der analysierten Textdatei enthalten sind.
 
-.Der_Prozess.txt
-[source,txt]
-----
-include::../../test/resources/Der_Prozess.txt[]
-----
 
 ## Beispiel Wortartenbestimmung
 
@@ -52,8 +47,53 @@ include::../../test/resources/Der_Prozess.txt[]
 include::../../test/java/com/github/funthomas424242/rades/taggenerator/POSTaggerTest.java[]
 ----
 
+.console output
+[source,shell]
+----
+22:37:42.978 [main] INFO  e.s.nlp.tagger.maxent.MaxentTagger - Loading POS tagger from model/german-fast.tagger ... done [0.8 sec].
+22:37:43.432 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - Jemand_NE
+22:37:43.432 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - mußte_VMFIN
+22:37:43.432 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - Josef_NE
+22:37:43.432 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - K._NE
+22:37:43.432 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - verleumdet_VVPP
+22:37:43.432 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - haben_VAFIN
+22:37:43.432 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - ,_$,
+22:37:43.432 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - denn_KON
+22:37:43.432 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - ohne_APPR
+22:37:43.432 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - daß_KOUS
+22:37:43.433 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - er_PPER
+22:37:43.433 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - etwas_PIS
+22:37:43.433 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - Böses_NE
+22:37:43.433 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - getan_VVPP
+22:37:43.433 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - hätte_VAFIN
+22:37:43.433 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - ,_$,
+22:37:43.433 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - wurde_VAFIN
+22:37:43.433 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - er_PPER
+22:37:43.433 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - eines_ART
+22:37:43.433 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - Morgens_ADV
+22:37:43.433 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - verhaftet_VVPP
+22:37:43.433 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - ._$.
+22:37:43.433 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - Die_ART
+22:37:43.433 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - Köchin_NN
+22:37:43.433 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - der_ART
+22:37:43.433 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - Frau_NN
+22:37:43.433 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - Grubach_NE
+22:37:43.434 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - ,_$,
+
+Process finished with exit code 0
+
+----
 
 
 ## Nutzung mit Kumo einem Word Cloud Generator
 
 Kumo Projektseite: https://github.com/kennycason/kumo
+
+[#anhang]
+## Anhang
+
+.Der_Prozess.txt
+[source,txt]
+----
+include::../../test/resources/Der_Prozess.txt[]
+----
