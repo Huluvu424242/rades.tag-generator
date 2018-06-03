@@ -6,7 +6,7 @@ Die Versionierung erfolgt nach http://semver.org/lang/de/[Semantic Versioning].
 
 // ## [3.1.1] fertiggestellt 2018-05-11
 
-## [Unreleased]
+## [1.0.0] fertiggestellt 2018-06-03
 ### Added
 
 - https://github.com/FunThomas424242/rades.tag-generator/issues/1[issue #1] Projekt aufgesetzt.
