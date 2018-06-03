@@ -85,6 +85,43 @@ Process finished with exit code 0
 ----
 
 
+## Beispiel Schlagwortermittlung
+
+.POSTagCounterTest.java
+[source,java]
+----
+include::../../test/java/com/github/funthomas424242/rades/taggenerator/POSTagCounterTest.java[]
+----
+
+
+.console output
+[source,shell]
+----
+14:15:38.551 [main] INFO  e.s.nlp.tagger.maxent.MaxentTagger - Loading POS tagger from model/german-fast.tagger ... done [0.5 sec].
+14:15:44.577 [main] DEBUG c.g.f.r.taggenerator.POSTagCounter - Tür - 177
+14:15:44.577 [main] DEBUG c.g.f.r.taggenerator.POSTagCounter - Hand - 133
+14:15:44.577 [main] DEBUG c.g.f.r.taggenerator.POSTagCounter - Advokaten - 125
+14:15:44.577 [main] DEBUG c.g.f.r.taggenerator.POSTagCounter - Mann - 122
+14:15:44.577 [main] DEBUG c.g.f.r.taggenerator.POSTagCounter - Maler - 118
+14:15:44.578 [main] DEBUG c.g.f.r.taggenerator.POSTagCounter - Frau - 114
+14:15:44.578 [main] DEBUG c.g.f.r.taggenerator.POSTagCounter - Prozeß - 114
+14:15:44.578 [main] DEBUG c.g.f.r.taggenerator.POSTagCounter - Advokat - 110
+14:15:44.578 [main] DEBUG c.g.f.r.taggenerator.POSTagCounter - Zeit - 104
+14:15:44.578 [main] DEBUG c.g.f.r.taggenerator.POSTagCounter - Zimmer - 98
+14:15:44.578 [main] DEBUG c.g.f.r.taggenerator.POSTagCounter - Onkel - 84
+14:15:44.578 [main] DEBUG c.g.f.r.taggenerator.POSTagCounter - Gericht - 81
+14:15:44.578 [main] DEBUG c.g.f.r.taggenerator.POSTagCounter - Kaufmann - 74
+14:15:44.578 [main] DEBUG c.g.f.r.taggenerator.POSTagCounter - Fräulein - 70
+14:15:44.578 [main] DEBUG c.g.f.r.taggenerator.POSTagCounter - Herr - 69
+14:15:44.579 [main] DEBUG c.g.f.r.taggenerator.POSTagCounter - Mädchen - 64
+14:15:44.579 [main] DEBUG c.g.f.r.taggenerator.POSTagCounter - Sache - 63
+14:15:44.579 [main] DEBUG c.g.f.r.taggenerator.POSTagCounter - Arbeit - 58
+14:15:44.579 [main] DEBUG c.g.f.r.taggenerator.POSTagCounter - Herren - 58
+14:15:44.579 [main] DEBUG c.g.f.r.taggenerator.POSTagCounter - Bank - 57
+
+----
+
+
 ## Nutzung mit Kumo einem Word Cloud Generator
 
 Kumo Projektseite: https://github.com/kennycason/kumo
