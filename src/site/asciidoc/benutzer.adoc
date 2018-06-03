@@ -89,6 +89,22 @@ Process finished with exit code 0
 
 Kumo Projektseite: https://github.com/kennycason/kumo
 
+Folgender Programmkode
+
+.TagCloudTest.java
+[source,java]
+----
+include::../../test/java/com/github/funthomas424242/rades/taggenerator/TagCloudTest.java[]
+----
+
+erzeugt beispielsweise folgendes Bild.
+
+.tagCloud.png
+[#tagCloud-image]
+[caption="Figure 1: "]
+image::figures/tagCloud.png[tagCloud,400,300]
+
+
 [#anhang]
 ## Anhang
 
