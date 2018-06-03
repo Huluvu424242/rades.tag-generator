@@ -38,7 +38,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 public class POSTaggerTest {
 
-    final static Logger LOGGER = LoggerFactory.getLogger(POSTaggerTest.class);
+    protected static final Logger LOGGER = LoggerFactory.getLogger(POSTaggerTest.class);
 
     @Test
     public void tag() {
