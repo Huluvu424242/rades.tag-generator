@@ -3,3 +3,150 @@
 Dieses Projekt stellt Klassen zur automatischen Ermittlung von Schlagwörtern aus Textdateien bekannter Sprachen zur Verfügung.
 Die Ermittlung der Schlagwörter erfolgt auf Basis von Textanalysen durchgeführt vom NLP Standford Standard POS Tagger
 und unterstützenden Frameworks.
+
+## Einbindung ins eigene Programm
+
+.pom.xml
+[source,xml]
+----
+<repositories>
+    <repository>  <!--1-->
+        <snapshots>
+            <enabled>false</enabled>
+        </snapshots>
+        <id>central</id>
+        <name>bintray</name>
+        <url>https://jcenter.bintray.com</url> <!--3-->
+    </repository>
+</repositories>
+:
+<dependencies>
+    <dependency>  <!--2-->
+        <groupId>com.github.funthomas424242</groupId>
+        <artifactId>rades.tag-generator</artifactId>
+        <version>1.0.0</version>
+    </dependency>
+</dependencies>
+----
+<1> Definition des Repositories.
+<2> Definition der Projektabhängigkeit.
+<3> Das ist der eigentliche Download URL des JCenter.
+
+## Vorbereitung der Beispiele
+
+In folgenden Beispielen wird ein Kapitel des freien Textes "Der Prozess" von Franz Kafka analysiert. Er ist im <<anhang>> wiedergegeben.
+
+Die Textanalysen in den Beispielen werden etwas verfälscht, da die Quellennachweise und sonstige Metadaten in der analysierten Textdatei enthalten sind.
+
+
+## Beispiel Wortartenbestimmung
+
+.POSTaggerTest.java
+[source,java]
+----
+include::../../test/java/com/github/funthomas424242/rades/taggenerator/POSTaggerTest.java[]
+----
+
+.console output
+[source,shell]
+----
+22:37:42.978 [main] INFO  e.s.nlp.tagger.maxent.MaxentTagger - Loading POS tagger from model/german-fast.tagger ... done [0.8 sec].
+22:37:43.432 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - Jemand_NE
+22:37:43.432 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - mußte_VMFIN
+22:37:43.432 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - Josef_NE
+22:37:43.432 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - K._NE
+22:37:43.432 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - verleumdet_VVPP
+22:37:43.432 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - haben_VAFIN
+22:37:43.432 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - ,_$,
+22:37:43.432 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - denn_KON
+22:37:43.432 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - ohne_APPR
+22:37:43.432 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - daß_KOUS
+22:37:43.433 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - er_PPER
+22:37:43.433 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - etwas_PIS
+22:37:43.433 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - Böses_NE
+22:37:43.433 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - getan_VVPP
+22:37:43.433 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - hätte_VAFIN
+22:37:43.433 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - ,_$,
+22:37:43.433 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - wurde_VAFIN
+22:37:43.433 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - er_PPER
+22:37:43.433 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - eines_ART
+22:37:43.433 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - Morgens_ADV
+22:37:43.433 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - verhaftet_VVPP
+22:37:43.433 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - ._$.
+22:37:43.433 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - Die_ART
+22:37:43.433 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - Köchin_NN
+22:37:43.433 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - der_ART
+22:37:43.433 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - Frau_NN
+22:37:43.433 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - Grubach_NE
+22:37:43.434 [main] DEBUG c.g.f.r.taggenerator.POSTaggerTest - ,_$,
+
+Process finished with exit code 0
+
+----
+
+
+## Beispiel Schlagwortermittlung
+
+.POSTagCounterTest.java
+[source,java]
+----
+include::../../test/java/com/github/funthomas424242/rades/taggenerator/POSTagCounterTest.java[]
+----
+
+
+.console output
+[source,shell]
+----
+14:15:38.551 [main] INFO  e.s.nlp.tagger.maxent.MaxentTagger - Loading POS tagger from model/german-fast.tagger ... done [0.5 sec].
+14:15:44.577 [main] DEBUG c.g.f.r.taggenerator.POSTagCounter - Tür - 177
+14:15:44.577 [main] DEBUG c.g.f.r.taggenerator.POSTagCounter - Hand - 133
+14:15:44.577 [main] DEBUG c.g.f.r.taggenerator.POSTagCounter - Advokaten - 125
+14:15:44.577 [main] DEBUG c.g.f.r.taggenerator.POSTagCounter - Mann - 122
+14:15:44.577 [main] DEBUG c.g.f.r.taggenerator.POSTagCounter - Maler - 118
+14:15:44.578 [main] DEBUG c.g.f.r.taggenerator.POSTagCounter - Frau - 114
+14:15:44.578 [main] DEBUG c.g.f.r.taggenerator.POSTagCounter - Prozeß - 114
+14:15:44.578 [main] DEBUG c.g.f.r.taggenerator.POSTagCounter - Advokat - 110
+14:15:44.578 [main] DEBUG c.g.f.r.taggenerator.POSTagCounter - Zeit - 104
+14:15:44.578 [main] DEBUG c.g.f.r.taggenerator.POSTagCounter - Zimmer - 98
+14:15:44.578 [main] DEBUG c.g.f.r.taggenerator.POSTagCounter - Onkel - 84
+14:15:44.578 [main] DEBUG c.g.f.r.taggenerator.POSTagCounter - Gericht - 81
+14:15:44.578 [main] DEBUG c.g.f.r.taggenerator.POSTagCounter - Kaufmann - 74
+14:15:44.578 [main] DEBUG c.g.f.r.taggenerator.POSTagCounter - Fräulein - 70
+14:15:44.578 [main] DEBUG c.g.f.r.taggenerator.POSTagCounter - Herr - 69
+14:15:44.579 [main] DEBUG c.g.f.r.taggenerator.POSTagCounter - Mädchen - 64
+14:15:44.579 [main] DEBUG c.g.f.r.taggenerator.POSTagCounter - Sache - 63
+14:15:44.579 [main] DEBUG c.g.f.r.taggenerator.POSTagCounter - Arbeit - 58
+14:15:44.579 [main] DEBUG c.g.f.r.taggenerator.POSTagCounter - Herren - 58
+14:15:44.579 [main] DEBUG c.g.f.r.taggenerator.POSTagCounter - Bank - 57
+
+----
+
+
+## Nutzung mit Kumo einem Word Cloud Generator
+
+Kumo Projektseite: https://github.com/kennycason/kumo
+
+Folgender Programmkode
+
+.TagCloudTest.java
+[source,java]
+----
+include::../../test/java/com/github/funthomas424242/rades/taggenerator/TagCloudTest.java[]
+----
+
+erzeugt beispielsweise folgendes Bild.
+
+.tagCloud.png
+[#tagCloud-image]
+[caption="Figure 1: "]
+image::figures/tagCloud.png[tagCloud,400,300]
+
+
+[#anhang]
+## Anhang
+
+.Der_Prozess.txt
+[source,txt]
+----
+include::../../test/resources/Der_Prozess.txt[]
+----

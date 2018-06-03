@@ -10,12 +10,12 @@ package com.github.funthomas424242.rades.taggenerator;
  * it under the terms of the GNU General Public License as
  * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public
  * License along with this program.  If not, see
  * <http://www.gnu.org/licenses/gpl-3.0.html>.
@@ -34,6 +34,8 @@ import edu.stanford.nlp.process.DocumentPreprocessor;
 import edu.stanford.nlp.process.PTBTokenizer;
 import edu.stanford.nlp.process.TokenizerFactory;
 import edu.stanford.nlp.tagger.maxent.MaxentTagger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -43,6 +45,8 @@ import java.nio.file.Path;
 import java.util.List;
 
 public class POSTagCounter {
+
+    protected final Logger LOGGER = LoggerFactory.getLogger(POSTagCounter.class);
 
     protected final Path modelFilepath;
 
@@ -61,9 +65,9 @@ public class POSTagCounter {
 
         final MaxentTagger tagger = new MaxentTagger(model);
         final TokenizerFactory<CoreLabel> ptbTokenizerFactory = PTBTokenizer.factory(
-                new CoreLabelTokenFactory(), "untokenizable=noneKeep");
+            new CoreLabelTokenFactory(), "untokenizable=noneKeep");
         final BufferedReader r = new BufferedReader(new InputStreamReader(
-                new FileInputStream(textFilePath.toAbsolutePath().toString()), this.charset));
+            new FileInputStream(textFilePath.toAbsolutePath().toString()), this.charset));
 
         final DocumentPreprocessor documentPreprocessor = new DocumentPreprocessor(r);
         documentPreprocessor.setTokenizerFactory(ptbTokenizerFactory);
@@ -81,10 +85,20 @@ public class POSTagCounter {
         return sortedSet;
     }
 
-    public void printSortedNounsCount(final Multiset<TaggedWord> keywords) {
+    public void logSortedKeywords(final Multiset<TaggedWord> keywords, final int anzahl) {
+        final Counter counter = new Counter();
         keywords.entrySet().stream().forEach(item -> {
-            System.out.println(item.getElement().value() + " - " + item.getCount());
+            if (counter.value < anzahl) {
+                LOGGER.debug(item.getElement().value() + " - " + item.getCount());
+                counter.value++;
+            } else {
+                return;
+            }
         });
+    }
+
+    protected static class Counter {
+        public int value = 0;
     }
 }
 
